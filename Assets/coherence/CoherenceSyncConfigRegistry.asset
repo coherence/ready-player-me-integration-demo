@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4479039898621491804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579f4a509fd2f994fa391c0c78ea3f11, type: 3}
+  m_Name: Capsule
+  m_EditorClassIdentifier: 
+  id: 82f272f4961f01d47a9e3c3309283481
+  editorTarget: {fileID: 850829449446101556, guid: 82f272f4961f01d47a9e3c3309283481, type: 3}
+  includeInSchema: 1
+  objectProvider:
+    rid: 332025556876918786
+  objectInstantiator:
+    rid: 332025556876918787
+  references:
+    version: 2
+    RefIds:
+    - rid: 332025556876918786
+      type: {class: DirectReferenceProvider, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+      data:
+        prefab: {fileID: 850829449446101556, guid: 82f272f4961f01d47a9e3c3309283481, type: 3}
+    - rid: 332025556876918787
+      type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+      data: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe206545a28be2142b8fa937387721e8, type: 3}
+  m_Name: CoherenceSyncConfigRegistry
+  m_EditorClassIdentifier: 
+  configs:
+  - {fileID: -4479039898621491804}
+  - {fileID: 6785055259720758632}
+  loadFromAssetDatabase: 0
+--- !u!114 &6785055259720758632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579f4a509fd2f994fa391c0c78ea3f11, type: 3}
+  m_Name: Multiplayer Character
+  m_EditorClassIdentifier: 
+  id: d75e47307ad1c5041b867c84e5260a80
+  editorTarget: {fileID: 2861196945099067608, guid: d75e47307ad1c5041b867c84e5260a80, type: 3}
+  includeInSchema: 1
+  objectProvider:
+    rid: 332025556876918791
+  objectInstantiator:
+    rid: 332025556876918792
+  references:
+    version: 2
+    RefIds:
+    - rid: 332025556876918791
+      type: {class: ResourcesProvider, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+      data:
+        resourcesPath: Multiplayer Character
+    - rid: 332025556876918792
+      type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+      data: 

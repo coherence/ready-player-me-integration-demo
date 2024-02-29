@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   versionInfo: {fileID: 11400000, guid: 2191b6f902c97477baa32a7919010503, type: 2}
   runtimeKey: cea362a2f3ca45c38469677d7b9e8149
-  schemaID: 274357df4efd61aba6f7f47b567bfcdfac67c391
+  schemaID: d061ea40744bbf68a70ceab69a8e5bd446a6ec44
   simulatorSlug: 
   localHost: 127.0.0.1
   localWorldUDPPort: 32001
@@ -28,8 +28,8 @@ MonoBehaviour:
   localHttpServerPort: 42006
   localDevelopmentMode: 1
   useDebugStreams: 0
-  organizationID: cmnr05a2t1cmgs967mqg
-  projectID: cmnr05a2t1cmgs967mr0
+  organizationID: 
+  projectID: 
   projectName: Default Project
   defaultTransportMode: 0
   replicationServerToken: 

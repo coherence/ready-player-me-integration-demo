@@ -1,0 +1,6 @@
+component Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815 [id "153"]
+  Walking Bool [bits "1"]
+
+component Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263 [id "154"]
+  avatarURL String [bits "6"]
+

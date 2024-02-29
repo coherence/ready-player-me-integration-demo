@@ -25,13 +25,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 579f4a509fd2f994fa391c0c78ea3f11, type: 3}
-  m_Name: Multiplayer Character
+  m_Name: Player
   m_EditorClassIdentifier: 
   id: d75e47307ad1c5041b867c84e5260a80
   editorTarget: {fileID: 2861196945099067608, guid: d75e47307ad1c5041b867c84e5260a80, type: 3}
   includeInSchema: 1
   objectProvider:
-    rid: 332025558428549124
+    rid: 1316686731559043143
   objectInstantiator:
     rid: 332025556876918792
   references:
@@ -40,7 +40,7 @@ MonoBehaviour:
     - rid: 332025556876918792
       type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
       data: 
-    - rid: 332025558428549124
-      type: {class: ResourcesProvider, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+    - rid: 1316686731559043143
+      type: {class: DirectReferenceProvider, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
       data:
-        resourcesPath: Multiplayer Character
+        prefab: {fileID: 2861196945099067608, guid: d75e47307ad1c5041b867c84e5260a80, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12696b20f2e49519c1b2a403a76778b, type: 3}
   m_Name: CoreSettings
   m_EditorClassIdentifier: 
-  Subdomain: coherencetest
-  AppId: 65e04b6b7e541d97c954ea81
+  Subdomain: 
+  AppId: 
   EnableLogging: 0
   EnableAnalytics: 0

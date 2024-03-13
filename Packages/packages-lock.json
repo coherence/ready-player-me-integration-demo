@@ -1,14 +1,14 @@
 {
   "dependencies": {
     "com.readyplayerme.core": {
-      "version": "https://github.com/readyplayerme/rpm-unity-sdk-core.git",
+      "version": "6.1.0",
       "depth": 0,
-      "source": "git",
+      "source": "registry",
       "dependencies": {
         "com.unity.cloud.gltfast": "6.0.1",
         "com.unity.nuget.newtonsoft-json": "3.0.2"
       },
-      "hash": "73ec35811311913eac6ead42c2634d8232498b76"
+      "url": "https://package.openupm.com"
     },
     "com.readyplayerme.webview": {
       "version": "https://github.com/readyplayerme/rpm-unity-sdk-webview.git#v2.1.3",

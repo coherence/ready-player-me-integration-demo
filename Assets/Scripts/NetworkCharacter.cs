@@ -1,18 +1,10 @@
-using System;
 using Coherence.Toolkit;
 using ReadyPlayerMe.Core;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class NetworkCharacter : MonoBehaviour
 {
-    public Transform animatedAvatar;
-    public Transform rootBone;
-    public Animator animator;
-    
-    [Header("Resources")]
-    public Avatar masculineAvatar;
-    public Avatar feminineAvatar;
+    public GameObject avatar;
 
     [Header("Synced properties")]
     [Sync, OnValueSynced(nameof(ReloadAvatar))] public string avatarModelID;
@@ -62,46 +54,7 @@ public class NetworkCharacter : MonoBehaviour
     private void OnAvatarLoaded(object sender, CompletionEventArgs e)
     {
         GameObject downloadedAvatar = e.Avatar;
-
-        // Use the right Animator Avatar definition
-        OutfitGender outfitGender = downloadedAvatar.GetComponent<AvatarData>().AvatarMetadata.OutfitGender;
-        animator.avatar = outfitGender switch
-        {
-            OutfitGender.Masculine => masculineAvatar,
-            OutfitGender.Feminine => feminineAvatar,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-
-        // Remove previous SkinnedMeshRenderers in this object
-        SkinnedMeshRenderer[] skinnedMeshRenderers = gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
-        foreach (SkinnedMeshRenderer skinnedMesh in skinnedMeshRenderers) Destroy(skinnedMesh.gameObject);
-
-        // Recreate new SkinnedMeshRenderers with the new avatar data
-        skinnedMeshRenderers = downloadedAvatar.GetComponentsInChildren<SkinnedMeshRenderer>();
-        foreach (SkinnedMeshRenderer downloadedSkinnedMesh in skinnedMeshRenderers)
-        {
-            GameObject newMeshObject = new GameObject(downloadedSkinnedMesh.gameObject.name);
-            newMeshObject.transform.SetParent(animatedAvatar, false);
-            newMeshObject.transform.localPosition = Vector3.zero;
-            SkinnedMeshRenderer newSkinnedMeshRenderer = newMeshObject.AddComponent<SkinnedMeshRenderer>();
-            newSkinnedMeshRenderer.sharedMesh = downloadedSkinnedMesh.sharedMesh;
-            newSkinnedMeshRenderer.sharedMaterial = downloadedSkinnedMesh.sharedMaterial;
-            newSkinnedMeshRenderer.rootBone = rootBone;
-            newSkinnedMeshRenderer.bones = Utilities.MapBones(rootBone, downloadedSkinnedMesh.bones);
-            newSkinnedMeshRenderer.quality = downloadedSkinnedMesh.quality;
-            newSkinnedMeshRenderer.updateWhenOffscreen = downloadedSkinnedMesh.updateWhenOffscreen;
-            newSkinnedMeshRenderer.localBounds = downloadedSkinnedMesh.localBounds;
-
-            // Is this even needed? Only if RPM uses blend shapes
-            for (int i = 0; i < downloadedSkinnedMesh.sharedMesh.blendShapeCount; i++)
-            {
-                float blendShapeWeight = downloadedSkinnedMesh.GetBlendShapeWeight(i);
-                newSkinnedMeshRenderer.SetBlendShapeWeight(i, blendShapeWeight);
-            }
-        }
-        
-        animator.Rebind(); // Necessary to "restart" the Animator, otherwise it will look frozen
-        
+        AvatarMeshHelper.TransferMesh(downloadedAvatar, avatar);
         Destroy(downloadedAvatar);
     }
 

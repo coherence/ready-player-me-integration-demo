@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.readyplayerme.core": "https://github.com/readyplayerme/rpm-unity-sdk-core.git",
+    "com.readyplayerme.core": "6.1.0",
     "com.readyplayerme.webview": "https://github.com/readyplayerme/rpm-unity-sdk-webview.git#v2.1.3",
     "com.unity.cinemachine": "2.9.7",
     "com.unity.feature.development": "1.0.1",
@@ -44,6 +44,13 @@
       "url": "https://registry.npmjs.org",
       "scopes": [
         "io.coherence.sdk"
+      ]
+    },
+    {
+      "name": "OpenUPM",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.readyplayerme.core"
       ]
     }
   ]

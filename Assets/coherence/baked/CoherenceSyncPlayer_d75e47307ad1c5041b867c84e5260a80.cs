@@ -175,8 +175,8 @@ namespace Coherence.Generated
 
         public override System.String Value
         {
-            get { return (System.String)(CastedUnityComponent.avatarURL); }
-            set { CastedUnityComponent.avatarURL = (System.String)(value); }
+            get { return (System.String)(CastedUnityComponent.avatarModelID); }
+            set { CastedUnityComponent.avatarModelID = (System.String)(value); }
         }
 
         protected override System.String ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)

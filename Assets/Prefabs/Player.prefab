@@ -254,7 +254,7 @@ MonoBehaviour:
   - rid: 332025556876918793
   - rid: 332025556876918795
   - rid: 1316686731559043073
-  - rid: 1316686731559043076
+  - rid: 4312438681827016704
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -408,15 +408,19 @@ MonoBehaviour:
         oldName: 
         oldParameterAssemblyTypes: []
         parameterHash: 1744665739
-    - rid: 1316686731559043076
+    - rid: 1316686736144728084
+      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions, asm: Coherence.Toolkit}
+      data:
+        component: {fileID: 2249994633060746730}
+    - rid: 4312438681827016704
       type: {class: StringBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 1316686731559043077
+          rid: 4312438681827016705
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 368a291b-ec2c-4d22-8f14-29b80de027b7
+        guid: e405e90a-e224-4a17-8bfa-a061991b9609
         archetypeData:
           type: 5
           minRange: 0
@@ -431,10 +435,10 @@ MonoBehaviour:
         unityComponent: {fileID: 6071707303727537263}
         coherenceSync: {fileID: 9060063475924239877}
         interpolationSettings: {fileID: 0}
-    - rid: 1316686731559043077
+    - rid: 4312438681827016705
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
-        name: avatarURL
+        name: avatarModelID
         monoAssemblyType: System.String, mscorlib
         required: 1
         enforcesLODingWhenFieldsOverriden: 1
@@ -451,10 +455,6 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 1316686736144728084
-      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions, asm: Coherence.Toolkit}
-      data:
-        component: {fileID: 2249994633060746730}
 --- !u!114 &6071707303727537263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,7 +472,7 @@ MonoBehaviour:
   animator: {fileID: 7456888245380698815}
   masculineAvatar: {fileID: 9000000, guid: 89f358deabe746242a74281b3ca72caf, type: 3}
   feminineAvatar: {fileID: 9000000, guid: 135b456f38897dd40a0dcf22218087bb, type: 3}
-  avatarURL: 
+  avatarModelID: 
 --- !u!114 &2249994633060746730
 MonoBehaviour:
   m_ObjectHideFlags: 0

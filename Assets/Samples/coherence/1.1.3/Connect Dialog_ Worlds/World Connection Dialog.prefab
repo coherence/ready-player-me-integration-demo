@@ -3310,7 +3310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1dfdba224b4b88bb99f7414178e6af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avatarURLInputField: {fileID: 4068077869435713311}
+  avatarIDInputField: {fileID: 4068077869435713311}
 --- !u!1 &7414325176214444568
 GameObject:
   m_ObjectHideFlags: 0

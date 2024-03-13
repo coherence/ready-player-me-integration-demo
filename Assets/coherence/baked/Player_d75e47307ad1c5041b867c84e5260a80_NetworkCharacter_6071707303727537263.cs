@@ -19,8 +19,8 @@ namespace Coherence.Generated
     
     public struct Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263 : ICoherenceComponentData
     {
-        public static uint avatarURLMask => 0b00000000000000000000000000000001;
-        public System.String avatarURL;
+        public static uint avatarModelIDMask => 0b00000000000000000000000000000001;
+        public System.String avatarModelID;
         
         public uint FieldsMask { get; set; }
         public uint StoppedMask { get; set; }
@@ -69,7 +69,7 @@ namespace Coherence.Generated
             if ((mask & 0x01) != 0)
             {
                 Frame = other.Frame;
-                avatarURL = other.avatarURL;
+                avatarModelID = other.avatarModelID;
             }
             
             mask >>= 1;
@@ -93,7 +93,7 @@ namespace Coherence.Generated
             if (bitStream.WriteMask((mask & 0x01) != 0))
             {
             
-                var fieldValue = data.avatarURL;
+                var fieldValue = data.avatarModelID;
             
 
             
@@ -117,8 +117,8 @@ namespace Coherence.Generated
             var val = new Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263();
             if (bitStream.ReadMask())
             {
-                val.avatarURL = bitStream.ReadShortString();
-                mask |= avatarURLMask;
+                val.avatarModelID = bitStream.ReadShortString();
+                mask |= avatarModelIDMask;
             }
                     
             val.FieldsMask = mask;
@@ -136,7 +136,7 @@ namespace Coherence.Generated
 
         public override string ToString()
         {
-            return $"Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263(avatarURL: { avatarURL }, Mask: {System.Convert.ToString(FieldsMask, 2).PadLeft(1, '0')}), Stopped: {System.Convert.ToString(StoppedMask, 2).PadLeft(1, '0')})";
+            return $"Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263(avatarModelID: { avatarModelID }, Mask: {System.Convert.ToString(FieldsMask, 2).PadLeft(1, '0')}), Stopped: {System.Convert.ToString(StoppedMask, 2).PadLeft(1, '0')})";
         }
     }
     

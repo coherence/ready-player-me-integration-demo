@@ -161,7 +161,7 @@ namespace Coherence.Generated
         }    
     }
     
-    public class Binding_d75e47307ad1c5041b867c84e5260a80_368a291b_ec2c_4d22_8f14_29b80de027b7 : StringBinding
+    public class Binding_d75e47307ad1c5041b867c84e5260a80_a8de01fe_f7e3_4c3a_a268_096800c34994 : StringBinding
     {   
         private global::NetworkCharacter CastedUnityComponent;
 
@@ -175,13 +175,13 @@ namespace Coherence.Generated
 
         public override System.String Value
         {
-            get { return (System.String)(CastedUnityComponent.avatarURL); }
-            set { CastedUnityComponent.avatarURL = (System.String)(value); }
+            get { return (System.String)(CastedUnityComponent.avatarModelID); }
+            set { CastedUnityComponent.avatarModelID = (System.String)(value); }
         }
 
         protected override System.String ReadComponentData(ICoherenceComponentData coherenceComponent, Vector3 floatingOriginDelta)
         {
-            var value = ((Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263)coherenceComponent).avatarURL;
+            var value = ((Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263)coherenceComponent).avatarModelID;
             
             return value;
         }
@@ -191,11 +191,11 @@ namespace Coherence.Generated
             var update = (Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263)coherenceComponent;
             if (RuntimeInterpolationSettings.IsInterpolationNone)
             {
-                update.avatarURL = Value;
+                update.avatarModelID = Value;
             }
             else
             {
-                update.avatarURL = GetInterpolatedAt(time);
+                update.avatarModelID = GetInterpolatedAt(time);
             }
             
             return update;
@@ -222,7 +222,7 @@ namespace Coherence.Generated
             ["4611e264-3ddd-458c-8f2a-444cd5794bad"] = new Binding_d75e47307ad1c5041b867c84e5260a80_4611e264_3ddd_458c_8f2a_444cd5794bad(),
             ["595e0ae7-d227-41b7-8666-825dc641c72f"] = new Binding_d75e47307ad1c5041b867c84e5260a80_595e0ae7_d227_41b7_8666_825dc641c72f(),
             ["219d4272-7cc0-4b82-a3b0-a189abcf3acd"] = new Binding_d75e47307ad1c5041b867c84e5260a80_219d4272_7cc0_4b82_a3b0_a189abcf3acd(),
-            ["368a291b-ec2c-4d22-8f14-29b80de027b7"] = new Binding_d75e47307ad1c5041b867c84e5260a80_368a291b_ec2c_4d22_8f14_29b80de027b7(),
+            ["a8de01fe-f7e3-4c3a-a268-096800c34994"] = new Binding_d75e47307ad1c5041b867c84e5260a80_a8de01fe_f7e3_4c3a_a268_096800c34994(),
         };
         
         private Dictionary<string, Action<CommandBinding, CommandsHandler>> bakedCommandBindings = new Dictionary<string, Action<CommandBinding, CommandsHandler>>();

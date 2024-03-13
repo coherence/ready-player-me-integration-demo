@@ -7,7 +7,7 @@ public class NetworkCharacter : MonoBehaviour
     public GameObject avatar;
 
     [Header("Synced properties")]
-    [Sync, OnValueSynced(nameof(ReloadAvatar))] public string avatarModelID;
+    [Sync, OnValueSynced(nameof(ReloadAvatar)), Delayed] public string avatarModelID;
 
     private AvatarObjectLoader _avatarObjectLoader;
 
@@ -61,5 +61,11 @@ public class NetworkCharacter : MonoBehaviour
     private void OnAvatarLoadFailed(object sender, FailureEventArgs e)
     {
         Debug.LogError($"Avatar download failed. {e.Message}");
+    }
+    
+    private void OnValidate()
+    {
+        // By tapping into OnValidate, we can paste a new avatarID directly in the Unity editor, and it will just load it straight away!
+        ReloadAvatar(avatarModelID, avatarModelID);
     }
 }

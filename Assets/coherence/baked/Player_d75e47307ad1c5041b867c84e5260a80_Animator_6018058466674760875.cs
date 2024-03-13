@@ -17,7 +17,7 @@ namespace Coherence.Generated
     using UnityEngine;
     using Coherence.Toolkit;
     
-    public struct Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815 : ICoherenceComponentData
+    public struct Player_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875 : ICoherenceComponentData
     {
         public static uint WalkingMask => 0b00000000000000000000000000000001;
         public System.Boolean Walking;
@@ -61,7 +61,7 @@ namespace Coherence.Generated
         
         public ICoherenceComponentData MergeWith(ICoherenceComponentData data, uint mask)
         {
-            var other = (Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815)data;
+            var other = (Player_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875)data;
 
             FieldsMask |= mask;
             StoppedMask &= ~(mask);
@@ -83,7 +83,7 @@ namespace Coherence.Generated
             throw new System.NotSupportedException($"{nameof(DiffWith)} is not supported in Unity");
         }
         
-        public static uint Serialize(Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815 data, uint mask, IOutProtocolBitStream bitStream, Logger logger)
+        public static uint Serialize(Player_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875 data, uint mask, IOutProtocolBitStream bitStream, Logger logger)
         {
             if (bitStream.WriteMask(data.StoppedMask != 0))
             {
@@ -105,7 +105,7 @@ namespace Coherence.Generated
             return mask;
         }
         
-        public static (Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815, uint) Deserialize(InProtocolBitStream bitStream)
+        public static (Player_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875, uint) Deserialize(InProtocolBitStream bitStream)
         {
             var stoppedMask = (uint)0;
             if (bitStream.ReadMask())
@@ -114,7 +114,7 @@ namespace Coherence.Generated
             }
 
             var mask = (uint)0;
-            var val = new Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815();
+            var val = new Player_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875();
             if (bitStream.ReadMask())
             {
                 val.Walking = bitStream.ReadBool();
@@ -130,13 +130,13 @@ namespace Coherence.Generated
         
         public void ResetByteArrays(ICoherenceComponentData lastSent, uint mask)
         {
-            var last = lastSent as Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815?;
+            var last = lastSent as Player_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875?;
             
         }
 
         public override string ToString()
         {
-            return $"Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815(Walking: { Walking }, Mask: {System.Convert.ToString(FieldsMask, 2).PadLeft(1, '0')}), Stopped: {System.Convert.ToString(StoppedMask, 2).PadLeft(1, '0')})";
+            return $"Player_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875(Walking: { Walking }, Mask: {System.Convert.ToString(FieldsMask, 2).PadLeft(1, '0')}), Stopped: {System.Convert.ToString(StoppedMask, 2).PadLeft(1, '0')})";
         }
     }
     

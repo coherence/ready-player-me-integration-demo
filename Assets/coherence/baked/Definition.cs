@@ -16,7 +16,7 @@ namespace Coherence.Generated
     
     public class Definition : IDefinition
     {
-        public const string schemaId = "84a040f19ee6aeed0e13d16f95e09f602329a8db";
+        public const string schemaId = "106cf46770ec0a276722fecea97e7a4f8b9563ad";
         public const uint InternalWorldPosition = 0;
         public const uint InternalWorldOrientation = 1;
         public const uint InternalLocalUserComponent = 2;
@@ -170,7 +170,7 @@ namespace Coherence.Generated
         public const uint InternalGenericFieldULong3 = 150;
         public const uint InternalGenericFieldColor0 = 151;
         public const uint InternalGenericFieldColor1 = 152;
-        public const uint InternalPlayer_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815 = 153;
+        public const uint InternalPlayer_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875 = 153;
         public const uint InternalPlayer_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263 = 154;
         public const uint InternalAuthorityRequest = 0;
         public const uint InternalAuthorityTransfer = 1;
@@ -334,7 +334,7 @@ namespace Coherence.Generated
             { 150, "GenericFieldULong3" },
             { 151, "GenericFieldColor0" },
             { 152, "GenericFieldColor1" },
-            { 153, "Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815" },
+            { 153, "Player_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875" },
             { 154, "Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263" },
         };
 
@@ -673,8 +673,8 @@ namespace Coherence.Generated
                     return GenericFieldColor0.Deserialize(inProtocolStream);
                 case InternalGenericFieldColor1:
                     return GenericFieldColor1.Deserialize(inProtocolStream);
-                case InternalPlayer_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815:
-                    return Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815.Deserialize(inProtocolStream);
+                case InternalPlayer_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875:
+                    return Player_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875.Deserialize(inProtocolStream);
                 case InternalPlayer_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263:
                     return Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263.Deserialize(inProtocolStream);
                 default:
@@ -993,8 +993,8 @@ namespace Coherence.Generated
                     return GenericFieldColor0.Serialize((GenericFieldColor0)data, mask, protocolStream, logger);
                 case InternalGenericFieldColor1:
                     return GenericFieldColor1.Serialize((GenericFieldColor1)data, mask, protocolStream, logger);
-                case InternalPlayer_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815:
-                    return Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815.Serialize((Player_d75e47307ad1c5041b867c84e5260a80_Animator_7456888245380698815)data, mask, protocolStream, logger);
+                case InternalPlayer_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875:
+                    return Player_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875.Serialize((Player_d75e47307ad1c5041b867c84e5260a80_Animator_6018058466674760875)data, mask, protocolStream, logger);
                 case InternalPlayer_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263:
                     return Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263.Serialize((Player_d75e47307ad1c5041b867c84e5260a80_NetworkCharacter_6071707303727537263)data, mask, protocolStream, logger);
                 default:

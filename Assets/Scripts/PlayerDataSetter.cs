@@ -1,23 +1,24 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public static class PlayerData
 {
-    public static string AvatarURL;
+    public static string AvatarModelID;
 }
 
 public class PlayerDataSetter : MonoBehaviour
 {
-    public InputField avatarURLInputField;
+    [FormerlySerializedAs("avatarURLInputField")] public InputField avatarIDInputField;
 
-    private void Awake() => SetAvatarURL(avatarURLInputField.text);
+    private void Awake() => SetAvatarModelID(avatarIDInputField.text);
 
-    private void OnEnable() => avatarURLInputField.onValueChanged.AddListener(SetAvatarURL);
+    private void OnEnable() => avatarIDInputField.onValueChanged.AddListener(SetAvatarModelID);
 
-    private void OnDisable() => avatarURLInputField.onValueChanged.RemoveAllListeners();
+    private void OnDisable() => avatarIDInputField.onValueChanged.RemoveAllListeners();
 
-    private void SetAvatarURL(string url)
+    private void SetAvatarModelID(string id)
     {
-        PlayerData.AvatarURL = url;
+        PlayerData.AvatarModelID = Utilities.StripUrl(id);
     }
 }

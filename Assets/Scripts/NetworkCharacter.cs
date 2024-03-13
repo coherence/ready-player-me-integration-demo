@@ -2,6 +2,7 @@ using System;
 using Coherence.Toolkit;
 using ReadyPlayerMe.Core;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class NetworkCharacter : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class NetworkCharacter : MonoBehaviour
     public Avatar feminineAvatar;
 
     [Header("Synced properties")]
-    [Sync, OnValueSynced(nameof(ReloadAvatar))] public string avatarURL;
+    [Sync, OnValueSynced(nameof(ReloadAvatar))] public string avatarModelID;
 
     private AvatarObjectLoader _avatarObjectLoader;
 
@@ -31,16 +32,33 @@ public class NetworkCharacter : MonoBehaviour
         _avatarObjectLoader.OnFailed -= OnAvatarLoadFailed;
     }
 
-    private void ReloadAvatar(string oldAvatarURL, string newAvatarURL)
+    public void AssignModelID(string newID) => avatarModelID = newID;
+
+    /// <summary>
+    /// Triggers when the avatarURL string is synced from the remote authority,
+    /// and forces this character to load a new avatar.
+    /// </summary>
+    private void ReloadAvatar(string oldID, string newID)
     {
-        avatarURL = newAvatarURL;
-        LoadRPMAvatar();
+        AssignModelID(newID);
+        LoadRpmAvatar();
     }
 
-    public void SetAvatarURL(string newAvatarUrl) => avatarURL = newAvatarUrl;
-    
-    public void LoadRPMAvatar() => _avatarObjectLoader.LoadAvatar(avatarURL);
+    /// <summary>
+    /// Requests loading of the RPM Avatar.
+    /// </summary>
+    public void LoadRpmAvatar()
+    {
+        string fullAvatarURL = Utilities.CompleteUrl(avatarModelID);
+        _avatarObjectLoader.LoadAvatar(fullAvatarURL);
+    }
 
+    /// <summary>
+    /// This method is triggered when the Avatar mesh has been obtained from the ReadyPlayerMe server
+    /// (which automatically instantiates an avatar gameObject).
+    /// It transfers all the mesh data to the existing MeshFilters that are bound with coherence,
+    /// then destroys the auto-instantiated gameObject (downloadedAvatar).
+    /// </summary>
     private void OnAvatarLoaded(object sender, CompletionEventArgs e)
     {
         GameObject downloadedAvatar = e.Avatar;
@@ -69,12 +87,12 @@ public class NetworkCharacter : MonoBehaviour
             newSkinnedMeshRenderer.sharedMesh = downloadedSkinnedMesh.sharedMesh;
             newSkinnedMeshRenderer.sharedMaterial = downloadedSkinnedMesh.sharedMaterial;
             newSkinnedMeshRenderer.rootBone = rootBone;
-            newSkinnedMeshRenderer.bones = MapBones(rootBone, downloadedSkinnedMesh.bones);
+            newSkinnedMeshRenderer.bones = Utilities.MapBones(rootBone, downloadedSkinnedMesh.bones);
             newSkinnedMeshRenderer.quality = downloadedSkinnedMesh.quality;
             newSkinnedMeshRenderer.updateWhenOffscreen = downloadedSkinnedMesh.updateWhenOffscreen;
             newSkinnedMeshRenderer.localBounds = downloadedSkinnedMesh.localBounds;
 
-            // Is this needed?
+            // Is this even needed? Only if RPM uses blend shapes
             for (int i = 0; i < downloadedSkinnedMesh.sharedMesh.blendShapeCount; i++)
             {
                 float blendShapeWeight = downloadedSkinnedMesh.GetBlendShapeWeight(i);
@@ -82,38 +100,9 @@ public class NetworkCharacter : MonoBehaviour
             }
         }
         
-        animator.Rebind(); // Necessary to "restart" the Animator
+        animator.Rebind(); // Necessary to "restart" the Animator, otherwise it will look frozen
         
         Destroy(downloadedAvatar);
-    }
-    
-    Transform[] MapBones(Transform destinationRoot, Transform[] sourceBones)
-    {
-        Transform[] mappedBones = new Transform[sourceBones.Length];
-        for (int i = 0; i < sourceBones.Length; i++)
-        {
-            mappedBones[i] = FindDeepChild(destinationRoot, sourceBones[i].name);
-            
-            if (mappedBones[i] == null) Debug.LogError("Bone mapping failed for: " + sourceBones[i].name);
-        }
-        return mappedBones;
-    }
-
-    Transform FindDeepChild(Transform parent, string boneName)
-    {
-        if (parent.name == boneName) return parent;
-
-        foreach (Transform child in parent)
-        {
-            if (child.name == boneName)
-                return child;
-
-            Transform result = FindDeepChild(child, boneName);
-            if (result != null)
-                return result;
-        }
-
-        return null;
     }
 
     private void OnAvatarLoadFailed(object sender, FailureEventArgs e)

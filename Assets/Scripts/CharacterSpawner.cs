@@ -20,8 +20,8 @@ public class CharacterSpawner : MonoBehaviour
     private void OnConnection(CoherenceBridge _)
     {
         NetworkCharacter newCharacter = Instantiate(networkCharacterPrefab);
-        newCharacter.SetAvatarURL(PlayerData.AvatarURL);
-        newCharacter.LoadRPMAvatar();
+        newCharacter.AssignModelID(PlayerData.AvatarModelID);
+        newCharacter.LoadRpmAvatar();
 
         cinemachineVCam.Follow = newCharacter.transform;
         cinemachineVCam.LookAt = newCharacter.transform;

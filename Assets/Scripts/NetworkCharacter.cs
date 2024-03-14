@@ -66,6 +66,7 @@ public class NetworkCharacter : MonoBehaviour
     private void OnValidate()
     {
         // By tapping into OnValidate, we can paste a new avatarID directly in the Unity editor, and it will just load it straight away!
-        ReloadAvatar(avatarModelID, avatarModelID);
+        if(!string.IsNullOrEmpty(avatarModelID))
+            ReloadAvatar(avatarModelID, avatarModelID);
     }
 }

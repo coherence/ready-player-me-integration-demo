@@ -30,7 +30,7 @@ public class NetworkCharacter : MonoBehaviour
     /// Triggers when the avatarURL string is synced from the remote authority,
     /// and forces this character to load a new avatar.
     /// </summary>
-    private void ReloadAvatar(string oldID, string newID)
+    private void ReloadAvatar(string _, string newID)
     {
         AssignModelID(newID);
         LoadRpmAvatar();
